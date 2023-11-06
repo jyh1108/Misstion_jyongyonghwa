@@ -1,7 +1,10 @@
-package com.ll;
+package com.ll.view;
+
+import com.ll.run.App;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        new App().run();
     }
+
 }
