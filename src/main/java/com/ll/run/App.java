@@ -34,9 +34,11 @@ public class App {
     }
 
     private void Registration() {
+        int n = 1;
         System.out.print("명언 : ");
         String famous = scanner.nextLine();
         System.out.print("내용 : ");
         String content = scanner.nextLine();
+        System.out.println(n + "번 명언이 등록 되었습니다.");
     }
 }
