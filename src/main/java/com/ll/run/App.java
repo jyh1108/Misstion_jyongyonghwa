@@ -19,9 +19,9 @@ public class App {
             String input = scanner.nextLine();
             switch (input) {
                 case "종료":
-                    System.out.println("");
                     return;
                 case "등록":
+                    Registration();
                     break;
                 case "목록":
                     break;
@@ -31,5 +31,12 @@ public class App {
                     break;
             }
         } while (!input.equals("종료"));
+    }
+
+    private void Registration() {
+        System.out.print("명언 : ");
+        String famous = scanner.nextLine();
+        System.out.print("내용 : ");
+        String content = scanner.nextLine();
     }
 }
