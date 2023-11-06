@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class App {
     String input = "";
     private Scanner scanner;
-
+    int  n =0;
     public App() {
         scanner = new Scanner(System.in);
     }
@@ -34,7 +34,7 @@ public class App {
     }
 
     private void Registration() {
-        int n = 1;
+         n += 1;
         System.out.print("명언 : ");
         String famous = scanner.nextLine();
         System.out.print("내용 : ");
