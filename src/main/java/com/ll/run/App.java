@@ -10,9 +10,8 @@ import java.util.Scanner;
 public class App {
     String input = "";
     private Scanner scanner;
-    int n = 0;
+    int numbers = 0;
     private Service service = new Service();
-
     public App() {
         scanner = new Scanner(System.in);
     }
@@ -48,10 +47,8 @@ public class App {
             System.out.println("번호 / 작가 / 명언");
             System.out.println("------------------------");
             Collections.reverse(list);
-            int number = list.size();
             for (dto d : list) {
-                System.out.println(number + " / " + d.getContent() + " / " + d.getFamous());
-                number--;
+                System.out.println(d.getNumbers() + " / " + d.getContent() + " / " + d.getFamous());
             }
         } else {
             System.out.println("글이 존재하지 않습니다.");
@@ -59,16 +56,15 @@ public class App {
     }
 
     private void Registration() {
-        n += 1;
+        numbers++;
         System.out.print("명언 : ");
         String famous = scanner.nextLine();
-        System.out.print("내용 : ");
+        System.out.print("작가 : ");
         String content = scanner.nextLine();
-
-        dto re = new dto(famous, content);
+        dto re = new dto(famous, content,numbers);
         if (service.Registration(re)) {
 
-            System.out.println(n + "번 명언이 등록 되었습니다.");
+            System.out.println(numbers + "번 명언이 등록 되었습니다.");
         }
     }
 }

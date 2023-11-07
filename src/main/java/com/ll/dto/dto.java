@@ -11,6 +11,7 @@ public class dto {
     private String famous;
     private String content;
 
+    private int numbers;
 
 
 }
