@@ -4,7 +4,6 @@ import com.ll.Service.Service;
 import com.ll.dto.Rq;
 import com.ll.dto.dto;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,8 +44,33 @@ public class App {
             }
         }
     }
+
     //수정
     private void Modify(Rq rq) {
+        int id = rq.getParamAsInt("id", 0);
+
+        if (id == 0) {
+            System.out.println("id를 정확히 입력해주세요.");
+            return;
+        }
+
+        int index = service.listId(id);
+
+        if (index == -1) {
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+            return;
+        }
+
+        System.out.println("명언(기존) : " + service.list.get(index).getFamous());
+        System.out.print("명언 : ");
+        String famous = scanner.nextLine();
+        System.out.println("작가(기존) : " + service.list.get(index).getContent());
+        System.out.print("작가 : ");
+        String content = scanner.nextLine();
+
+        dto re = new dto(famous, content, index);
+        service.Modify(re);
+
     }
 
     //삭제
@@ -72,15 +96,14 @@ public class App {
     }
 
 
-
     //목록
     private void testList() {
         List<dto> list = service.listAll();
         if (!list.isEmpty()) {
             System.out.println("번호 / 작가 / 명언");
             System.out.println("------------------------");
-            Collections.reverse(list);
-            for (dto d : list) {
+            for (int i = list.size() - 1; i >= 0; i--) {
+                dto d = list.get(i);
                 System.out.println(d.getNumbers() + " / " + d.getContent() + " / " + d.getFamous());
             }
         } else {

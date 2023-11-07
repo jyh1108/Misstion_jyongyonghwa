@@ -31,4 +31,12 @@ public class Service {
 
         return -1;
     }
+
+    public boolean Modify(dto re) {
+        int index = re.getNumbers();
+        dto Modify = list.get(index);
+        Modify.setFamous(re.getFamous());
+        Modify.setContent(re.getContent());
+        return true;
+    }
 }
