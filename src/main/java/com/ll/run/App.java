@@ -123,4 +123,5 @@ public class App {
             System.out.println(numbers + "번 명언이 등록 되었습니다.");
         }
     }
+
 }
